@@ -26,58 +26,44 @@ public class AddTwoNumbers {
         return dump.next;
     }
 
+    private static ListNode createLinkedList(int... values) {
+        if (values==null || values.length==0) {
+            return null;
+        }
+        ListNode head = new ListNode(values[0]);
+        ListNode curr = head;
+        for (int v : values) {
+            curr.next = new ListNode(v);
+            curr = curr.next;
+        }
+        return head;
+    }
+
+    private static void printLinkedList(ListNode node) {
+        int i = 0;
+        while (node!=null) {
+            System.out.println("index: " + i + ", val: " + node.val);
+            i++;
+            node = node.next;
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
-        ListNode l11 = new ListNode(2);
-        l11.next = new ListNode(4);
-        l11.next.next = new ListNode(3);
+        ListNode l1 = createLinkedList(2, 4, 3);
+        ListNode l2 = createLinkedList(5, 6, 4);
+        ListNode ls12 = add(l1, l2);
+        printLinkedList(ls12);
 
-        ListNode l21 = new ListNode(5);
-        l21.next = new ListNode(6);
-        l21.next.next = new ListNode(4);
+        ListNode l3 = createLinkedList(0);
+        ListNode l4 = createLinkedList(0);
+        ListNode l34 = add(l3, l4);
+        printLinkedList(l34);
 
-        ListNode ls1 = add(l11, l21);
-        int i1 = 0;
-        while (ls1!=null) {
-            System.out.println("Index: " + i1 + " result val: " + ls1.val);
-            i1++;
-            ls1 = ls1.next;
-        }
-
-        System.out.println();
-        ListNode l12 = new ListNode(0);
-        ListNode l22 = new ListNode(0);
-
-        ListNode ls2 = add(l12, l22);
-        int i2 = 0;
-        while (ls2!=null) {
-            System.out.println("Index: " + i2 + " result val: " + ls2.val);
-            i2++;
-            ls2 = ls2.next;
-        }
-
-        System.out.println();
-        ListNode l31 = new ListNode(0);
-        l31.next = new ListNode(9);
-        l31.next.next = new ListNode(9);
-        l31.next.next.next = new ListNode(9);
-        l31.next.next.next.next = new ListNode(9);
-        l31.next.next.next.next.next = new ListNode(9);
-        l31.next.next.next.next.next.next = new ListNode(9);
-        l31.next.next.next.next.next.next.next = new ListNode(9);
-        ListNode l32 = new ListNode(0);
-        l32.next = new ListNode(9);
-        l32.next.next = new ListNode(9);
-        l32.next.next.next = new ListNode(9);
-        l32.next.next.next.next = new ListNode(9);
-
-        ListNode ls3 = add(l31, l32);
-        int i3 = 0;
-        while (ls3!=null) {
-            System.out.println("Index: " + i3 + " result val: " + ls3.val);
-            i3++;
-            ls3 = ls3.next;
-        }
+        ListNode l5 = createLinkedList(0, 9, 9, 9, 9, 9, 9, 9);
+        ListNode l6 = createLinkedList(0, 9, 9, 9, 9);
+        ListNode ls56 = add(l5, l6);
+        printLinkedList(ls56);
     }
 }
 
