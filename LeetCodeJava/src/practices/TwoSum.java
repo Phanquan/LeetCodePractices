@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class TwoSum {
 
-    public static int[] bruteForceSolution(final int[] nums, final int target) {
+    public static int[] bruteForce(final int[] nums, final int target) {
         int n = nums.length;
 
         for (int i = 0; i < n; i++) {
@@ -21,7 +21,7 @@ public class TwoSum {
         return new int[]{};
     }
 
-    public static int[] twoPassHashTableSolution(final int[] nums, final int target) {
+    public static int[] twoPassHashTable(final int[] nums, final int target) {
         int n = nums.length;
         Map<Integer, Integer> numMap = new HashMap<>();
 
@@ -40,7 +40,7 @@ public class TwoSum {
         return new int[]{};
     }
 
-    public static int[] onePassHashTableSolution(final int[] nums, final int target) {
+    public static int[] onePassHashTable(final int[] nums, final int target) {
         int n = nums.length;
         Map<Integer, Integer> numMap = new HashMap<>();
 
@@ -63,19 +63,19 @@ public class TwoSum {
         int[] nums3 = new int[]{3, 3};
         int target3 = 6;
 
-        System.out.println(Arrays.toString(TwoSum.bruteForceSolution(nums1, target1)));
-        System.out.println(Arrays.toString(TwoSum.bruteForceSolution(nums2, target2)));
-        System.out.println(Arrays.toString(TwoSum.bruteForceSolution(nums3, target3)));
+        System.out.println(Arrays.toString(TwoSum.bruteForce(nums1, target1)));
+        System.out.println(Arrays.toString(TwoSum.bruteForce(nums2, target2)));
+        System.out.println(Arrays.toString(TwoSum.bruteForce(nums3, target3)));
         System.out.println();
 
-        System.out.println(Arrays.toString(TwoSum.twoPassHashTableSolution(nums1, target1)));
-        System.out.println(Arrays.toString(TwoSum.twoPassHashTableSolution(nums2, target2)));
-        System.out.println(Arrays.toString(TwoSum.twoPassHashTableSolution(nums3, target3)));
+        System.out.println(Arrays.toString(TwoSum.twoPassHashTable(nums1, target1)));
+        System.out.println(Arrays.toString(TwoSum.twoPassHashTable(nums2, target2)));
+        System.out.println(Arrays.toString(TwoSum.twoPassHashTable(nums3, target3)));
         System.out.println();
 
-        System.out.println(Arrays.toString(TwoSum.onePassHashTableSolution(nums1, target1)));
-        System.out.println(Arrays.toString(TwoSum.onePassHashTableSolution(nums2, target2)));
-        System.out.println(Arrays.toString(TwoSum.onePassHashTableSolution(nums3, target3)));
+        System.out.println(Arrays.toString(TwoSum.onePassHashTable(nums1, target1)));
+        System.out.println(Arrays.toString(TwoSum.onePassHashTable(nums2, target2)));
+        System.out.println(Arrays.toString(TwoSum.onePassHashTable(nums3, target3)));
         System.out.println();
     }
 }
