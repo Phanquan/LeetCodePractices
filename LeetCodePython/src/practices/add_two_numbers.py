@@ -22,48 +22,36 @@ def add_two_numbers(l1: ListNode, l2: ListNode) -> ListNode:
     return dump.nexxt
 
 
+def create_linked_list(values):
+    if not values:
+        return None
+    head = ListNode(values[0])
+    current = head
+    for val in values[1:]:
+        current.nexxt = ListNode(val)
+        current = current.nexxt
+    return head
+
+
+def print_linked_list(node):
+    while node is not None:
+        print(f"val: {node.val}")
+        node = node.nexxt
+    print()
+
+
 if __name__ == '__main__':
-    l11: ListNode = ListNode(2)
-    l11.nexxt = ListNode(4)
-    l11.nexxt.nexxt = ListNode(3)
+    l1 = create_linked_list([2, 4, 3])
+    l2 = create_linked_list([5, 6, 4])
+    ls12 = add_two_numbers(l1, l2)
+    print_linked_list(ls12)
 
-    l12: ListNode = ListNode(5)
-    l12.nexxt = ListNode(6)
-    l12.nexxt.nexxt = ListNode(4)
+    l3 = create_linked_list([0])
+    l4 = create_linked_list([0])
+    ls34 = add_two_numbers(l3, l4)
+    print_linked_list(ls34)
 
-    ls1: ListNode = add_two_numbers(l11, l12)
-    while ls1 is not None:
-        print(f"val: {ls1.val}")
-        ls1 = ls1.nexxt
-
-    print()
-
-    l21: ListNode = ListNode(0)
-    l22: ListNode = ListNode(0)
-
-    ls2: ListNode = add_two_numbers(l21, l22)
-    while ls2 is not None:
-        print(f"val: {ls2.val}")
-        ls2 = ls2.nexxt
-
-    print()
-
-    l31: ListNode = ListNode(0)
-    l31.nexxt = ListNode(9)
-    l31.nexxt.nexxt = ListNode(9)
-    l31.nexxt.nexxt.nexxt = ListNode(9)
-    l31.nexxt.nexxt.nexxt.nexxt = ListNode(9)
-    l31.nexxt.nexxt.nexxt.nexxt = ListNode(9)
-    l31.nexxt.nexxt.nexxt.nexxt.nexxt = ListNode(9)
-    l31.nexxt.nexxt.nexxt.nexxt.nexxt.nexxt = ListNode(9)
-
-    l32: ListNode = ListNode(0)
-    l32.nexxt = ListNode(9)
-    l32.nexxt.nexxt = ListNode(9)
-    l32.nexxt.nexxt.nexxt = ListNode(9)
-    l32.nexxt.nexxt.nexxt.nexxt = ListNode(9)
-
-    ls3: ListNode = add_two_numbers(l31, l32)
-    while ls3 is not None:
-        print(f"val: {ls3.val}")
-        ls3 = ls3.nexxt
+    l5 = create_linked_list([0, 9, 9, 9, 9, 9, 9, 9])
+    l6 = create_linked_list([0, 9, 9, 9, 9])
+    ls56 = add_two_numbers(l5, l6)
+    print_linked_list(ls56)
